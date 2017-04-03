@@ -6,7 +6,6 @@ const globalShortcut = electron.globalShortcut
 
 const path = require('path')
 const url = require('url')
-const fs = require("fs");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -64,54 +63,20 @@ function createWindow () {
 
 	mainWindow.webContents.on('dom-ready', (event) => {
 		console.log("DOM ready");
-		mainWindow.webContents.executeJavaScript(`
+		/*mainWindow.webContents.executeJavaScript(`
 			var script = document.createElement('script');
 			script.src = 'https://code.jquery.com/jquery-2.2.4.min.js';
 			script.type = 'text/javascript';
 			document.getElementsByTagName('head')[0].appendChild(script);
-			`)
-
-		fs.readFile(__dirname + "/custombase.css", "utf-8", function(err, data) {
-			console.log(data);
-			mainWindow.webContents.executeJavaScript(`
-				style = document.createElement('style');
-				style.appendChild(document.createTextNode(` + data + `));
-				document.getElementsByTagName('head')[0].appendChild(style);
-				`);	
-		});
-	})
-	/*
-	mainWindow.webContents.on('did-stop-loading', () => {
-		console.log("All loaded");
+			`)*/
 		mainWindow.webContents.executeJavaScript(`
-			$('.player-controls').css({"position": "fixed", "height": "60px", "text-align": "left"});
-			$('.player-progress').css({"position": "fixed", "bottom": "58px", "height": "8px"});
-			$('.progress-background').css({"opacity": "1", "background-color": "#4b4b4b"})
-			$('.progress-seek-overlay').css({"display": "none"});
-			$('.controls-main').css({"float": "left", "top": "5px"});
-			$('.controls-options').css({"float": "left", "left": "48px", "padding-right": "48px", "top": "7px"});
-			//$('.controls-options li:last').css({"float": "right"});
-
-			$('#player').css({"bottom": "60px"});
-			$('#player-cover').css({"height": "220px"});
-			$('#menu_navigation').css({"bottom": "280px"});
-			`)
-
-		// Darktheme -----------------------------------------------------
-		/*mainWindow.webContents.executeJavaScript(`
-			$('table').css({'background-image': 'initial'});
-			$('.naboo').css({'background-color': '#1b1b1b'});
-			$('.channel-section').css('background-color', function(index) {
-				if (index % 2 == 1) {
-					return '#1f1e1e';
-					oddRow = false;
-				} else {
-  				return '#1b1b1b';
-  				oddRow = true;
-  			}
-			});ea
-			`)*/	/*
-	})    */
+			var customCSS = document.createElement('link');
+			customCSS.rel = 'stylesheet';
+			customCSS.type = 'text/css';
+			customCSS.href = 'https://rawgit.com/Viltzu/DeezerDesktopPlayer/master/custombase.css';
+			document.getElementsByTagName('head')[0].appendChild(customCSS);
+			`)			
+	})
 
 	// Open the DevTools.
 	//mainWindow.webContents.openDevTools()

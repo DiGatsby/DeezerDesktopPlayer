@@ -1,3 +1,66 @@
-body {
-	background-color: #EEE222;
+.player-controls {
+	position: fixed !important;
+	height: 60px !important;
+	text-align: left !important;
 }
+
+.player-progress {
+	position: fixed !important;
+	bottom: 58px !important;
+	height: 8px !important;
+}
+
+.progress-background {
+	opacity: 1 !important;
+	background-color: #4b4b4b !important;
+}
+
+.progress-seek-overlay {
+	display: none !important;
+}
+
+.controls-main {
+	float: left !important;
+	top: 5px !important;
+}
+
+.controls-options {
+	float: left !important;
+	left: 48px !important;
+	padding-right: 48px !important;
+	top: 7px !important;
+}
+
+#player {
+	bottom: 60px !important;
+}
+
+#player-cover {
+	height: 220px !important;
+}
+
+#menu-navigation {
+	bottom: 280px !important;
+}
+
+
+/* --- Possible darktheme ---
+table {
+	background-image: initial !important;
+}
+
+.naboo {
+	background-color: #1b1b1b;
+}
+
+.channel-section {
+	background-color...
+}
+$('.channel-section').css('background-color', function(index) {
+	if (index % 2 == 1) {
+		return '#1f1e1e';
+	} else {
+		return '#1b1b1b';
+	}
+});
+*/
