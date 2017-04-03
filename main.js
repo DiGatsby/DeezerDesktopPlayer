@@ -30,6 +30,14 @@ function createWindow () {
 	keyRegisterFn('MediaPreviousTrack', () => {
 		mainWindow.webContents.executeJavaScript(`
 			$('.control-prev').trigger('click');
+			setTimeout(function() {
+				var title = document.getElementsByClassName("player-track-link")[0].innerHTML;
+				var _body = document.getElementsByClassName("player-track-link")[1].innerHTML;
+				var myNotification = new Notification(title, {
+  					body: 'by ' + _body,
+  					silent: true
+				});
+			}, 100);
 			`)
 	});
 
@@ -42,6 +50,14 @@ function createWindow () {
 	keyRegisterFn('MediaNextTrack', () => {
 		mainWindow.webContents.executeJavaScript(`
 			$('.control-next').trigger('click');
+			setTimeout(function() {
+				var title = document.getElementsByClassName("player-track-link")[0].innerHTML;
+				var _body = document.getElementsByClassName("player-track-link")[1].innerHTML;
+				var myNotification = new Notification(title, {
+  					body: 'by ' + _body,
+  					silent: true
+				});
+			}, 100);
 			`)
 	});	
 
