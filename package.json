@@ -1,0 +1,21 @@
+{
+  "name": "deezerdesktopplayer",
+  "version": "0.1.0",
+  "description": "Simple Deezer Web client desktop wrapper with additional features",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "Deezer",
+    "Music"
+  ],
+  "author": "Vili-Robert Hietala (vltz)",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
