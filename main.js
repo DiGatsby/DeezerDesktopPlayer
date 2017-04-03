@@ -54,7 +54,9 @@ function createWindow () {
 		mainWindow = new BrowserWindow({width: 1080, height: 680 })//frame: false})
 	}
 
-	// and load the index.html of the app.
+	mainWindow.webContents.session.clearCache(function(){}) 
+
+	// load deezer
 	mainWindow.loadURL(url.format({
 		pathname: 'www.deezer.com/',
 		protocol: 'https:',
@@ -63,54 +65,50 @@ function createWindow () {
 
 	mainWindow.webContents.on('dom-ready', (event) => {
 		console.log("DOM ready");
+
 		/*mainWindow.webContents.executeJavaScript(`
 			var script = document.createElement('script');
 			script.src = 'https://code.jquery.com/jquery-2.2.4.min.js';
 			script.type = 'text/javascript';
 			document.getElementsByTagName('head')[0].appendChild(script);
 			`)*/
+
 		mainWindow.webContents.executeJavaScript(`
 			var customCSS = document.createElement('link');
 			customCSS.rel = 'stylesheet';
 			customCSS.type = 'text/css';
 			customCSS.href = 'https://rawgit.com/Viltzu/DeezerDesktopPlayer/master/custombase.css';
 			document.getElementsByTagName('head')[0].appendChild(customCSS);
-			`)			
+			`)
 	})
 
 	// Open the DevTools.
 	//mainWindow.webContents.openDevTools()
+	mainWindow.webContents.on('did-finish-load', () => {
+		mainWindow.webContents.executeJavaScript(`
+			var backButton = document.createElement('button');
+			backButton.id = 'previous-page-button';
+			backButton.onclick = window.history.back;
+			backButton.appendChild(document.createTextNode('←'));
+			var sidebarContainer = document.getElementsByClassName('sidebar-container')[0];
+			sidebarContainer.insertBefore(backButton, sidebarContainer.firstChild);
+			`)		
+	})
 
-	// Emitted when the window is closed.
 	mainWindow.on('closed', function () {
-		// Dereference the window object, usually you would store windows
-		// in an array if your app supports multi windows, this is the time
-		// when you should delete the corresponding element.
 		mainWindow = null
 	})
 }
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
 app.on('window-all-closed', function () {
-	// On OS X it is common for applications and their menu bar
-	// to stay active until the user quits explicitly with Cmd + Q
 	if (process.platform !== 'darwin') {
 		app.quit()
 	}
 })
 
 app.on('activate', function () {
-	// On OS X it's common to re-create a window in the app when the
-	// dock icon is clicked and there are no other windows open.
 	if (mainWindow === null) {
 		createWindow()
 	}
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

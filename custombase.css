@@ -1,3 +1,7 @@
+.page-main {
+	margin-bottom: 60px; /* Needs something better to stop main from being behind bottom bar */
+}
+
 .player-controls {
 	position: fixed !important;
 	height: 60px !important;
@@ -32,6 +36,7 @@
 }
 
 #player {
+	height: initial !important;
 	bottom: 60px !important;
 }
 
@@ -41,6 +46,16 @@
 
 #menu-navigation {
 	bottom: 280px !important;
+}
+
+#previous-page-button {
+	color: white;
+	background-color: #4b4b4b;
+	float: right;
+	margin-right: 20px;
+	padding: 0px 5px;
+	border-radius: 3px;
+	font-size: 20px;
 }
 
 
