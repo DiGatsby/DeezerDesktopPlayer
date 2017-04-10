@@ -7,8 +7,8 @@ const globalShortcut = electron.globalShortcut
 const path = require('path')
 const url = require('url')
 
-const CSSURL = "https://rawgit.com/Viltzu/DeezerDesktopPlayer/master/deezerbdp.css"
-const JSURL = "https://rawgit.com/Viltzu/DeezerDesktopPlayer/master/deezerbdp.js"
+const CSSURL = "https://cdn.rawgit.com/Viltzu/DeezerDesktopPlayer/a14e272a/deezerbdp.css"
+const JSURL = "https://cdn.rawgit.com/Viltzu/DeezerDesktopPlayer/a14e272a/deezerbdp.js"
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -46,7 +46,7 @@ function createWindow () {
 	}
 	mainWindow.setTitle('Deezer BDP');
 
-	mainWindow.webContents.session.clearCache(function(){}) 
+	//mainWindow.webContents.session.clearCache(function(){}) 
 
 	// load deezer
 	mainWindow.loadURL(url.format({
