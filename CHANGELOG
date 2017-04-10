@@ -1,0 +1,13 @@
+version 0.2.1:
+moved all js to be loaded from cdn, less client updates required
+stop notifications from queueing
+css fixes
+
+version 0.2.0:
+previous page button
+notifications (win10, osx)
+css fixes
+
+version 0.1.0:
+mediakey support
+fullwidth trackbar
