@@ -26,6 +26,7 @@
 .controls-main {
 	float: left !important;
 	top: 5px !important;
+	margin-top: -4px !important;
 }
 
 .controls-options {
@@ -33,6 +34,7 @@
 	left: 48px !important;
 	padding-right: 48px !important;
 	top: 7px !important;
+	margin-top: -4px !important;
 }
 
 #player {
@@ -49,15 +51,22 @@
 }
 
 #previous-page-button {
-	color: white;
-	background-color: #4b4b4b;
-	float: right;
-	margin-right: 20px;
-	padding: 0px 5px;
-	border-radius: 3px;
-	font-size: 20px;
+    color: #a2a2a9;
+    float: right;
+    margin-right: 18px;
+    line-height: 22px;
+    border-radius: 8px;
+    font-size: 32px;
+    text-align: center;
 }
 
+#previous-page-button:hover {
+	color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
 
 /* --- Possible darktheme ---
 table {

@@ -1,6 +1,6 @@
 {
-  "name": "deezerdesktopplayer",
-  "version": "0.1.0",
+  "name": "deezer-bdp",
+  "version": "0.2.0",
   "description": "Simple Deezer Web client desktop wrapper with additional features",
   "main": "main.js",
   "scripts": {
