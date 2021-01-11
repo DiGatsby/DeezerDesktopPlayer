@@ -1,3 +1,5 @@
+### Not up to date, doesn't work with new version of Deezer
+
 # DeezerDesktopPlayer
 Deezer desktop player using the web player, packed with additional features.
 
